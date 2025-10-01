@@ -1,0 +1,77 @@
+name: Test
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  schedule:
+    - cron: "0 0 * * 0"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: test-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    strategy:
+      matrix:
+        ruby: ["3.2", "3.3", "3.4"]
+        activemodel: ["~> 7.2", "~> 8.0"]
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Environment Variables
+        run: |
+          echo "ACTIVEMODEL_VERSION=${{ matrix.activemodel }}" >> $GITHUB_ENV
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby }}
+          bundler-cache: false
+      - name: Prepare Gemfile for matrix
+        run: |
+          bundle config set frozen false
+          bundle lock --add-platform ruby --add-platform x86_64-linux || true
+          if [ -n "${{ matrix.activemodel }}" ]; then
+            bundle lock --update activemodel || true
+          fi
+      - name: Install dependencies
+        run: bundle install --jobs 4 --retry 1
+
+      - name: Run tests
+        run: bundle exec rake test
+
+  ar_integration:
+    strategy:
+      matrix:
+        ruby: ["3.2", "3.3", "3.4"]
+        activerecord: ["~> 7.2", "~> 8.0"]
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Environment Variables
+        run: |
+          echo "AR_INTEGRATION=1" >> $GITHUB_ENV
+          echo "ACTIVERECORD_VERSION=${{ matrix.activerecord }}" >> $GITHUB_ENV
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby }}
+          bundler-cache: false
+      - name: Prepare Gemfile for AR matrix
+        run: |
+          bundle config set frozen false
+          bundle lock --add-platform ruby --add-platform x86_64-linux || true
+          bundle lock --update activerecord sqlite3 || true
+      - name: Install dependencies
+        run: bundle install --jobs 4 --retry 1
+      - name: Run integration tests
+        run: bundle exec rake test

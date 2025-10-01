@@ -1,0 +1,9 @@
+nl:
+  activemodel:
+    errors:
+      messages:
+        s3_bucket_name_invalid_general: "is geen geldige S3-bucketnaam (3–63 tekens; kleine letters, cijfers, punten of koppeltekens; begint/eindigt alfanumerisch; geen '..'; geen IP-formaat; geen gereserveerde voor-/achtervoegsels)"
+        s3_bucket_name_invalid_transfer_acceleration: "mag geen punten bevatten wanneer S3 Transfer Acceleration wordt gebruikt"
+        s3_bucket_name_invalid_directory: "is geen geldige S3-directorybucketnaam (3–63 tekens; kleine letters, cijfers of koppeltekens; moet eindigen op --<zone-id>--x-s3; gereserveerde voor-/achtervoegsels niet toegestaan)"
+        s3_bucket_name_invalid_table: "is geen geldige S3 Tables-bucketnaam (3–63 tekens; kleine letters, cijfers of koppeltekens; geen punten of underscores; geen gereserveerde voor-/achtervoegsels)"
+        s3_bucket_name_invalid: "is geen geldige S3-bucketnaam"

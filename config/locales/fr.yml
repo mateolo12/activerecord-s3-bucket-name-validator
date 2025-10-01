@@ -1,0 +1,9 @@
+fr:
+  activemodel:
+    errors:
+      messages:
+        s3_bucket_name_invalid_general: "n’est pas un nom de bucket S3 valide (3–63 caractères ; lettres minuscules, chiffres, points ou tirets ; commence et se termine par un caractère alphanumérique ; pas de '..' ; ne doit pas ressembler à une adresse IP ; pas de préfixes/suffixes réservés)"
+        s3_bucket_name_invalid_transfer_acceleration: "ne peut pas contenir de points avec S3 Transfer Acceleration"
+        s3_bucket_name_invalid_directory: "n’est pas un nom de bucket de répertoire S3 valide (3–63 caractères ; lettres minuscules, chiffres ou tirets ; doit se terminer par --<zone-id>--x-s3 ; préfixes/suffixes réservés interdits)"
+        s3_bucket_name_invalid_table: "n’est pas un nom de bucket S3 Tables valide (3–63 caractères ; lettres minuscules, chiffres ou tirets ; sans points ni underscores ; pas de préfixes/suffixes réservés)"
+        s3_bucket_name_invalid: "n’est pas un nom de bucket S3 valide"

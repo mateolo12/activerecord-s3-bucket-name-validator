@@ -1,0 +1,9 @@
+en:
+  activemodel:
+    errors:
+      messages:
+        s3_bucket_name_invalid_general: "is not a valid S3 bucket name (3–63 chars; lowercase letters, numbers, periods or hyphens; start/end alphanumeric; no '..'; not IP-like; no reserved prefixes/suffixes)"
+        s3_bucket_name_invalid_transfer_acceleration: "cannot contain periods when using S3 Transfer Acceleration"
+        s3_bucket_name_invalid_directory: "is not a valid S3 directory bucket name (3–63 chars; lowercase letters, numbers or hyphens; must end with --<zone-id>--x-s3; reserved prefixes/suffixes not allowed)"
+        s3_bucket_name_invalid_table: "is not a valid S3 Tables bucket name (3–63 chars; lowercase letters, numbers or hyphens; no periods or underscores; reserved prefixes/suffixes not allowed)"
+        s3_bucket_name_invalid: "is not a valid S3 bucket name"

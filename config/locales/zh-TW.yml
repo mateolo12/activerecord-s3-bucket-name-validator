@@ -1,0 +1,9 @@
+zh-TW:
+  activemodel:
+    errors:
+      messages:
+        s3_bucket_name_invalid_general: "不是有效的 S3 儲存貯體名稱（3–63 個字元；小寫字母、數字、點或連字號；開頭與結尾必須為英數字；不可含 '..'；不得為 IP 格式；不得使用保留的前/後綴）"
+        s3_bucket_name_invalid_transfer_acceleration: "使用 S3 Transfer Acceleration 時，名稱中不可包含點（.）"
+        s3_bucket_name_invalid_directory: "不是有效的 S3 目錄儲存貯體名稱（3–63 個字元；小寫字母、數字或連字號；必須以 --<zone-id>--x-s3 結尾；不得使用保留的前/後綴）"
+        s3_bucket_name_invalid_table: "不是有效的 S3 Tables 儲存貯體名稱（3–63 個字元；小寫字母、數字或連字號；不可有點或底線；不得使用保留的前/後綴）"
+        s3_bucket_name_invalid: "不是有效的 S3 儲存貯體名稱"

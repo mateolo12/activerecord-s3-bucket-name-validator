@@ -1,0 +1,9 @@
+ko:
+  activemodel:
+    errors:
+      messages:
+        s3_bucket_name_invalid_general: "유효한 S3 버킷 이름이 아닙니다(3–63자; 소문자, 숫자, 점 또는 하이픈; 시작/끝은 영숫자; '..' 금지; IP 형식 금지; 예약된 접두사/접미사 금지)"
+        s3_bucket_name_invalid_transfer_acceleration: "S3 Transfer Acceleration 사용 시 점(.)을 포함할 수 없습니다"
+        s3_bucket_name_invalid_directory: "유효한 S3 디렉터리 버킷 이름이 아닙니다(3–63자; 소문자, 숫자 또는 하이픈; '--<zone-id>--x-s3'로 끝나야 함; 예약된 접두사/접미사 금지)"
+        s3_bucket_name_invalid_table: "유효한 S3 Tables 버킷 이름이 아닙니다(3–63자; 소문자, 숫자 또는 하이픈; 점/밑줄 금지; 예약된 접두사/접미사 금지)"
+        s3_bucket_name_invalid: "유효한 S3 버킷 이름이 아닙니다"
