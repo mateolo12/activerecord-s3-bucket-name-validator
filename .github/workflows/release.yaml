@@ -2,11 +2,12 @@ name: Release
 
 on:
   push:
-    branches: [ main ]
+    tags:
+      - v*
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
   id-token: write
 
 jobs:
@@ -14,12 +15,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
-        with:
-          fetch-depth: 0
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.4'
-          bundler-cache: true
-      - name: Publish to RubyGems (trusted publishing)
-        uses: rubygems/release-gem@v1.1.1
+          bundler-cache: false
+      - name: Configure RubyGems credentials (OIDC)
+        uses: rubygems/configure-rubygems-credentials@v1.0.0
+      - name: Build gem
+        run: gem build *.gemspec
+      - name: Push gem
+        run: gem push *.gem
