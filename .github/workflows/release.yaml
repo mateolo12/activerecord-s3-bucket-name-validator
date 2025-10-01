@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
   id-token: write
 
 jobs:
@@ -20,5 +20,5 @@ jobs:
         with:
           ruby-version: '3.4'
           bundler-cache: true
-      - name: Release gem (RubyGems trusted publishing)
+      - name: Publish to RubyGems (trusted publishing)
         uses: rubygems/release-gem@v1.1.1
