@@ -3,7 +3,7 @@ module Activerecord
     module Bucket
       module Name
         module Validator
-          VERSION = "0.1.1"
+          VERSION = "0.1.2"
         end
       end
     end
