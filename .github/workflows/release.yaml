@@ -19,6 +19,10 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.4'
-          bundler-cache: true
-      - name: Publish to RubyGems (trusted publishing)
-        uses: rubygems/release-gem@v1.1.1
+          bundler-cache: false
+      - name: Configure RubyGems credentials (OIDC)
+        uses: rubygems/configure-rubygems-credentials@v1.0.0
+      - name: Build gem
+        run: gem build *.gemspec
+      - name: Push gem
+        run: gem push *.gem
