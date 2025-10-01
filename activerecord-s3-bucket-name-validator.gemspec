@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{ActiveModel/ActiveRecord validator for Amazon S3 bucket naming rules}
   spec.description   = %q{Validate S3 bucket names on your models against the official AWS rules (general purpose, directory buckets, and S3 Tables).}
-  spec.homepage      = "https://example.com/activerecord-s3-bucket-name-validator"
+  spec.homepage      = "https://github.com/icoretech/activerecord-s3-bucket-name-validator"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
@@ -20,8 +20,9 @@ Gem::Specification.new do |spec|
     # spec.metadata["allowed_push_host"] = "https://rubygems.org"
 
     spec.metadata["homepage_uri"] = spec.homepage
-    # spec.metadata["source_code_uri"] = "https://example.com/activerecord-s3-bucket-name-validator"
-    # spec.metadata["changelog_uri"] = "https://example.com/activerecord-s3-bucket-name-validator/CHANGELOG.md"
+    spec.metadata["source_code_uri"] = "https://github.com/icoretech/activerecord-s3-bucket-name-validator"
+    spec.metadata["bug_tracker_uri"] = "https://github.com/icoretech/activerecord-s3-bucket-name-validator/issues"
+    spec.metadata["changelog_uri"] = "https://github.com/icoretech/activerecord-s3-bucket-name-validator/releases"
   else
     raise "RubyGems 2.0 or newer is required to protect against " \
       "public gem pushes."
